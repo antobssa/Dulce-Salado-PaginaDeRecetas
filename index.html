@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabor & Dulzura - Catálogo de Recetas</title>
+    <!-- Google Fonts para Tipografía Elegante -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Hojas de Estilos Exclusivas -->
+    <link rel="stylesheet" href="estilosIA.css">
+</head>
+<body>
+
+    <!-- Header / Barra de Navegación -->
+    <header>
+        <div class="nav-container">
+            <div class="logo-container">
+                <a href="#catalogo" class="logo-text">Sabor & Dulzura</a>
+                <span class="logo-badge">Gourmet</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#catalogo">Recetas</a></li>
+                    <li><a href="#autor">Mantenimiento</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner Principal -->
+    <section class="hero">
+        <h1>Rincón de Recetas Exquisitas</h1>
+        <div class="decorative-oval"></div>
+        <p>Descubre preparaciones dulces y saladas creadas para deleitar el paladar con estilo y elegancia.</p>
+    </section>
+
+    <main class="container">
+
+        <!-- SECCIÓN: Catálogo de Recetas agrupadas -->
+        <section id="catalogo">
+            <h2 class="section-title">Catálogo de Recetas</h2>
+            <p class="section-subtitle">Selecciona tu categoría preferida para desplegar nuestras opciones recomendadas</p>
+
+            <!-- Lógica interactiva basada únicamente en CSS (Radio buttons) -->
+            <input type="radio" id="radio-dulces" name="categoria" checked>
+            <input type="radio" id="radio-saladas" name="categoria">
+
+            <div class="category-tabs">
+                <label for="radio-dulces" class="tab-btn">🍬 Recetas Dulces</label>
+                <label for="radio-saladas" class="tab-btn">🥐 Recetas Saladas</label>
+            </div>
+
+            <!-- Recetas Dulces (Mínimo 3) -->
+            <div id="contenido-dulces" class="recipes-content recipes-grid">
+                
+                <!-- Receta 1 -->
+                <article class="recipe-card">
+                    <div class="card-img-wrapper">
+                        <img src="imagenes/receta1.png" alt="Tarta de Frutillas con Crema">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Tarta de Frutillas con Crema</h3>
+                        <a href="recetarios/receta1.pdf" download="Tarta_Frutillas_Receta.pdf" class="btn-download"> Descargar Receta (PDF)</a>
+                    </div>
+                </article>
+
+                <!-- Receta 2 -->
+                <article class="recipe-card">
+                    <div class="card-img-wrapper">
+                        <img src="imagenes/receta2.png" alt="Macarons de Lavanda y Limón">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Macarons de Lavanda y Limón</h3>
+                        <a href="recetarios/receta2.pdf" download="Macarons_Lavanda_Receta.pdf" class="btn-download"> Descargar Receta (PDF)</a>
+                    </div>
+                </article>
+
+                <!-- Receta 3 -->
+                <article class="recipe-card">
+                    <div class="card-img-wrapper">
+                        <img src="imagenes/receta3.png" alt="Cupcakes de Vainilla y Rosas">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Cupcakes de Vainilla y Rosas</h3>
+                        <a href="recetarios/receta3.pdf" download="Cupcakes_Vainilla_Receta.pdf" class="btn-download"> Descargar Receta (PDF)</a>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Recetas Saladas (Mínimo 3) -->
+            <div id="contenido-saladas" class="recipes-content recipes-grid">
+                
+                <!-- Receta 4 -->
+                <article class="recipe-card">
+                    <div class="card-img-wrapper">
+                        <img src="imagenes/receta4.png" alt="Quiche de Espinacas y Queso">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Quiche de Espinacas y Queso</h3>
+                        <a href="recetarios/receta4.pdf" download="Quiche_Espinacas_Receta.pdf" class="btn-download"> Descargar Receta (PDF)</a>
+                    </div>
+                </article>
+
+                <!-- Receta 5 -->
+                <article class="recipe-card">
+                    <div class="card-img-wrapper">
+                        <img src="imagenes/receta5.png" alt="Pasta Fresca con Salsa Rosa">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Pasta Fresca con Salsa Rosa</h3>
+                        <a href="recetarios/receta5.pdf" download="Pasta_Salsa_Rosa_Receta.pdf" class="btn-download"> Descargar Receta (PDF)</a>
+                    </div>
+                </article>
+
+                <!-- Receta 6 -->
+                <article class="recipe-card">
+                    <div class="card-img-wrapper">
+                        <img src="imagenes/receta6.png" alt="Focaccia de Hierbas y Tomates">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Focaccia de Hierbas y Tomates</h3>
+                        <a href="recetarios/receta6.pdf" download="Focaccia_Hierbas_Receta.pdf" class="btn-download"> Descargar Receta (PDF)</a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- SECCIÓN: Información de quien mantiene el sitio -->
+        <section id="autor">
+            <h2 class="section-title">Mantenimiento del Sitio</h2>
+            <div class="about-card">
+                <div class="about-avatar">👩‍🍳</div>
+                <h3>Valentina M. Rossi</h3>
+                <div class="role">Pastelera & Desarrolladora Gastronómica</div>
+                <p>¡Hola! Soy Valentina, la creadora y encargada de mantener actualizado este recetario digital. Mi pasión combina el arte de la gastronomía pastelera y salada con el diseño elegante. Todas las recetas aquí publicadas están probadas para asegurar un resultado perfecto en tu cocina.</p>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: Información de Contacto -->
+        <section id="contacto">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact-container">
+                <form action="#" method="get">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej. Camila Silva" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="asunto">Asunto</label>
+                        <input type="text" id="asunto" name="asunto" placeholder="¿De qué trata tu consulta?">
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje o Sugerencia</label>
+                        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar Mensaje</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <strong>Sabor & Dulzura</strong> • Sitio web estático desarrollado con HTML5 y CSS3 puro.</p>
+    </footer>
+
+</body>
+</html>

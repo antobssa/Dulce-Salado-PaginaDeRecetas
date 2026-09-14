@@ -1,0 +1,452 @@
+/* ==========================================================================
+   Estilos Principales - Sitio de Recetas (estilosIA.css)
+   Paleta: Rosa, Lila/Lavanda, Crema, Blanco, Dorado
+   ========================================================================== */
+
+:root {
+  --color-rosa-primario: #d8a7b1;
+  --color-rosa-claro: #fff0f3;
+  --color-rosa-card: #fde8ed;
+  --color-rosa-borde: #c2849b;
+  --color-lila: #b592a0;
+  --color-lavanda-suave: #f3eff5;
+  --color-crema: #faf5ef;
+  --color-blanco: #ffffff;
+  --color-dorado: #d4af37;
+  --color-dorado-suave: #e6ca65;
+  --color-texto: #4a3e4d;
+  --color-texto-oscuro: #312333;
+  --fuente-principal: 'Playfair Display', 'Georgia', serif;
+  --fuente-cuerpo: 'Poppins', 'Segoe UI', sans-serif;
+  --sombra-suave: 0 8px 20px rgba(181, 146, 160, 0.12);
+  --sombra-card: 0 6px 15px rgba(194, 132, 155, 0.15);
+  --radio-borde: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fuente-cuerpo);
+  background-color: var(--color-crema);
+  color: var(--color-texto);
+  line-height: 1.6;
+}
+
+/* --- Header y Navegación --- */
+header {
+  background-color: var(--color-blanco);
+  border-bottom: 2px solid var(--color-rosa-primario);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.nav-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-text {
+  font-family: var(--fuente-principal);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-rosa-borde);
+  text-decoration: none;
+}
+
+.logo-badge {
+  background-color: var(--color-rosa-primario);
+  color: var(--color-blanco);
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--color-texto);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  padding: 0.4rem 0.8rem;
+  border-radius: 12px;
+}
+
+nav a:hover {
+  color: var(--color-rosa-borde);
+  background-color: var(--color-rosa-claro);
+}
+
+/* --- Banner Hero --- */
+.hero {
+  text-align: center;
+  padding: 3.5rem 1.5rem 2.5rem 1.5rem;
+  background: linear-gradient(135deg, var(--color-rosa-claro) 0%, var(--color-lavanda-suave) 100%);
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.hero h1 {
+  font-family: var(--fuente-principal);
+  font-size: 2.5rem;
+  color: var(--color-texto-oscuro);
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  color: var(--color-lila);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.decorative-oval {
+  width: 60px;
+  height: 6px;
+  background-color: var(--color-dorado);
+  border-radius: 10px;
+  margin: 1rem auto;
+}
+
+/* --- Secciones Principales --- */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+section {
+  margin-bottom: 3.5rem;
+  scroll-margin-top: 100px;
+}
+
+.section-title {
+  text-align: center;
+  font-family: var(--fuente-principal);
+  font-size: 2rem;
+  color: var(--color-rosa-borde);
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--color-lila);
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+/* --- Selector de Categorías CSS Puro (Tabs) --- */
+.category-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.tab-btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background-color: var(--color-blanco);
+  color: var(--color-texto);
+  border: 2px solid var(--color-rosa-primario);
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--sombra-suave);
+  text-decoration: none;
+}
+
+.tab-btn:hover {
+  background-color: var(--color-rosa-claro);
+  transform: translateY(-2px);
+}
+
+/* Lógica CSS pura con radio buttons ocultos */
+input[type="radio"][name="categoria"] {
+  display: none;
+}
+
+#radio-dulces:checked ~ .category-tabs label[for="radio-dulces"],
+#radio-saladas:checked ~ .category-tabs label[for="radio-saladas"] {
+  background-color: var(--color-rosa-borde);
+  color: var(--color-blanco);
+  border-color: var(--color-rosa-borde);
+  box-shadow: 0 4px 12px rgba(194, 132, 155, 0.4);
+}
+
+.recipes-content {
+  display: none;
+}
+
+#radio-dulces:checked ~ #contenido-dulces {
+  display: grid;
+}
+
+#radio-saladas:checked ~ #contenido-saladas {
+  display: grid;
+}
+
+/* --- Grid de Recetas y Cards --- */
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.recipe-card {
+  background-color: var(--color-rosa-card);
+  border: 2px solid var(--color-rosa-borde);
+  border-radius: var(--radio-borde);
+  overflow: hidden;
+  box-shadow: var(--sombra-card);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(194, 132, 155, 0.25);
+}
+
+.card-img-wrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  border-bottom: 1px solid var(--color-rosa-primario);
+}
+
+.card-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.recipe-card:hover .card-img-wrapper img {
+  transform: scale(1.05);
+}
+
+.card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.card-title {
+  font-family: var(--fuente-principal);
+  font-size: 1.25rem;
+  color: var(--color-texto-oscuro);
+  margin-bottom: 1rem;
+}
+
+.btn-download {
+  margin-top: auto;
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--color-blanco);
+  color: var(--color-rosa-borde);
+  border: 1.5px solid var(--color-rosa-borde);
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  align-self: center;
+}
+
+.btn-download:hover {
+  background-color: var(--color-rosa-borde);
+  color: var(--color-blanco);
+}
+
+/* --- Sección Sobre Mí --- */
+.about-card {
+  background-color: var(--color-blanco);
+  border-radius: var(--radio-borde);
+  padding: 2.5rem;
+  box-shadow: var(--sombra-suave);
+  border: 1px solid var(--color-rosa-primario);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background-color: var(--color-rosa-claro);
+  border: 3px solid var(--color-dorado);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 4px 10px rgba(212, 175, 55, 0.2);
+}
+
+.about-card h3 {
+  font-family: var(--fuente-principal);
+  font-size: 1.5rem;
+  color: var(--color-texto-oscuro);
+  margin-bottom: 0.3rem;
+}
+
+.about-card .role {
+  color: var(--color-dorado);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.about-card p {
+  color: var(--color-texto);
+  line-height: 1.7;
+}
+
+/* --- Sección Contacto (Formulario) --- */
+.contact-container {
+  max-width: 650px;
+  margin: 0 auto;
+  background-color: var(--color-blanco);
+  padding: 2.5rem;
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra-suave);
+  border: 1px solid var(--color-rosa-primario);
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-texto-oscuro);
+  margin-bottom: 0.4rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1.5px solid var(--color-rosa-primario);
+  border-radius: 10px;
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.95rem;
+  background-color: var(--color-rosa-claro);
+  color: var(--color-texto-oscuro);
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-rosa-borde);
+  background-color: var(--color-blanco);
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 0.9rem;
+  background-color: var(--color-rosa-borde);
+  color: var(--color-blanco);
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(194, 132, 155, 0.3);
+}
+
+.btn-submit:hover {
+  background-color: #a86b82;
+  transform: translateY(-1px);
+}
+
+/* --- Footer --- */
+footer {
+  background-color: var(--color-blanco);
+  border-top: 2px solid var(--color-rosa-primario);
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--color-lila);
+  font-size: 0.9rem;
+  margin-top: 3rem;
+}
+
+footer strong {
+  color: var(--color-rosa-borde);
+}
+
+/* --- Media Queries (Responsiveness) --- */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav ul {
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .about-card, .contact-container {
+    padding: 1.5rem;
+  }
+
+  .recipes-grid {
+    grid-template-columns: 1fr;
+  }
+}
