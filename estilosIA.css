@@ -1,452 +1,553 @@
-/* ==========================================================================
-   Estilos Principales - Sitio de Recetas (estilosIA.css)
+/* =========================================================
+   ESTILOS GENERALES Y PALETA DE COLORES
    Paleta: Rosa, Lila/Lavanda, Crema, Blanco, Dorado
-   ========================================================================== */
+   ========================================================= */
 
 :root {
-  --color-rosa-primario: #d8a7b1;
-  --color-rosa-claro: #fff0f3;
-  --color-rosa-card: #fde8ed;
-  --color-rosa-borde: #c2849b;
-  --color-lila: #b592a0;
-  --color-lavanda-suave: #f3eff5;
-  --color-crema: #faf5ef;
-  --color-blanco: #ffffff;
-  --color-dorado: #d4af37;
-  --color-dorado-suave: #e6ca65;
-  --color-texto: #4a3e4d;
-  --color-texto-oscuro: #312333;
-  --fuente-principal: 'Playfair Display', 'Georgia', serif;
-  --fuente-cuerpo: 'Poppins', 'Segoe UI', sans-serif;
-  --sombra-suave: 0 8px 20px rgba(181, 146, 160, 0.12);
-  --sombra-card: 0 6px 15px rgba(194, 132, 155, 0.15);
-  --radio-borde: 16px;
+    --color-rosa-principal: #E8A0BF;
+    --color-rosa-suave: #FDF0F5;
+    --color-rosa-card: #FFF0F5;
+    --color-rosa-borde: #E5B8C6;
+    --color-lavanda: #D8B4F8;
+    --color-lavanda-hover: #C697EE;
+    --color-crema-fondo: #FFFDF9;
+    --color-dorado: #D4AF37;
+    --color-texto-oscuro: #4A3E4E;
+    --color-texto-suave: #7A6B7D;
+    --color-blanco: #FFFFFF;
+    
+    --sombra-suave: 0 8px 20px rgba(160, 110, 135, 0.08);
+    --sombra-card: 0 4px 15px rgba(229, 184, 198, 0.25);
+    --sombra-hover: 0 10px 25px rgba(212, 175, 55, 0.2);
+    --radio-borde: 20px;
+    --radio-card: 16px;
 }
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body {
-  font-family: var(--fuente-cuerpo);
-  background-color: var(--color-crema);
-  color: var(--color-texto);
-  line-height: 1.6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-crema-fondo);
+    color: var(--color-texto-oscuro);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* --- Header y Navegación --- */
+/* =========================================================
+   BARRA DE NAVEGACIÓN (HEADER & NAV)
+   ========================================================= */
+
 header {
-  background-color: var(--color-blanco);
-  border-bottom: 2px solid var(--color-rosa-primario);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    background: linear-gradient(135deg, #FFF5F8 0%, #F5E6F0 100%);
+    border-bottom: 2px solid var(--color-rosa-borde);
+    box-shadow: var(--sombra-suave);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-.nav-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 .logo-container {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo-icon {
+    width: 38px;
+    height: 38px;
+    background-color: var(--color-rosa-principal);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-blanco);
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: 2px solid var(--color-dorado);
 }
 
 .logo-text {
-  font-family: var(--fuente-principal);
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--color-rosa-borde);
-  text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-texto-oscuro);
+    letter-spacing: 0.5px;
 }
 
-.logo-badge {
-  background-color: var(--color-rosa-primario);
-  color: var(--color-blanco);
-  font-size: 0.75rem;
-  padding: 0.2rem 0.6rem;
-  border-radius: 20px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+.logo-text span {
+    color: var(--color-rosa-principal);
 }
 
 nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
 nav a {
-  text-decoration: none;
-  color: var(--color-texto);
-  font-weight: 500;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
-  padding: 0.4rem 0.8rem;
-  border-radius: 12px;
+    text-decoration: none;
+    color: var(--color-texto-oscuro);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 8px 18px;
+    border-radius: 25px;
+    background-color: var(--color-blanco);
+    border: 1px solid var(--color-rosa-borde);
+    transition: all 0.3s ease;
+    display: inline-block;
 }
 
 nav a:hover {
-  color: var(--color-rosa-borde);
-  background-color: var(--color-rosa-claro);
+    background-color: var(--color-rosa-principal);
+    color: var(--color-blanco);
+    border-color: var(--color-rosa-principal);
+    transform: translateY(-2px);
+    box-shadow: var(--sombra-suave);
 }
 
-/* --- Banner Hero --- */
+/* =========================================================
+   HERO / BANNER DE BIENVENIDA
+   ========================================================= */
+
 .hero {
-  text-align: center;
-  padding: 3.5rem 1.5rem 2.5rem 1.5rem;
-  background: linear-gradient(135deg, var(--color-rosa-claro) 0%, var(--color-lavanda-suave) 100%);
-  border-bottom-left-radius: 40px;
-  border-bottom-right-radius: 40px;
-  margin-bottom: 2rem;
-  position: relative;
+    background-color: var(--color-rosa-suave);
+    text-align: center;
+    padding: 50px 20px;
+    border-bottom: 1px solid #F0D5E1;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-badge {
+    display: inline-block;
+    background-color: var(--color-lavanda);
+    color: #553366;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
 }
 
 .hero h1 {
-  font-family: var(--fuente-principal);
-  font-size: 2.5rem;
-  color: var(--color-texto-oscuro);
-  margin-bottom: 0.5rem;
+    font-size: 2.4rem;
+    color: var(--color-texto-oscuro);
+    margin-bottom: 12px;
+    font-weight: 700;
 }
 
 .hero p {
-  color: var(--color-lila);
-  font-size: 1.1rem;
-  max-width: 600px;
-  margin: 0 auto;
+    font-size: 1.1rem;
+    color: var(--color-texto-suave);
 }
 
-.decorative-oval {
-  width: 60px;
-  height: 6px;
-  background-color: var(--color-dorado);
-  border-radius: 10px;
-  margin: 1rem auto;
+/* =========================================================
+   ESTILOS GENERALES DE SECCIONES Y CONTENEDORES
+   ========================================================= */
+
+.main-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    flex: 1;
+    width: 100%;
 }
 
-/* --- Secciones Principales --- */
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-section {
-  margin-bottom: 3.5rem;
-  scroll-margin-top: 100px;
+.section-card {
+    background-color: var(--color-blanco);
+    border: 1px solid var(--color-rosa-borde);
+    border-radius: var(--radio-borde);
+    padding: 40px;
+    margin-bottom: 40px;
+    box-shadow: var(--sombra-suave);
 }
 
 .section-title {
-  text-align: center;
-  font-family: var(--fuente-principal);
-  font-size: 2rem;
-  color: var(--color-rosa-borde);
-  margin-bottom: 1.5rem;
-  position: relative;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-.section-subtitle {
-  text-align: center;
-  color: var(--color-lila);
-  margin-bottom: 2rem;
-  font-size: 0.95rem;
+.section-title h2 {
+    font-size: 1.8rem;
+    color: var(--color-texto-oscuro);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 8px;
 }
 
-/* --- Selector de Categorías CSS Puro (Tabs) --- */
-.category-tabs {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2.5rem;
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-dorado);
+    border-radius: 2px;
 }
 
-.tab-btn {
-  display: inline-block;
-  padding: 0.8rem 2rem;
-  background-color: var(--color-blanco);
-  color: var(--color-texto);
-  border: 2px solid var(--color-rosa-primario);
-  border-radius: 30px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: var(--sombra-suave);
-  text-decoration: none;
+/* =========================================================
+   SECCIÓN 1: SELECCIÓN Y CATÁLOGO DE RECETAS
+   ========================================================= */
+
+.category-selector-container {
+    text-align: center;
+    margin-bottom: 35px;
 }
 
-.tab-btn:hover {
-  background-color: var(--color-rosa-claro);
-  transform: translateY(-2px);
+.category-subtitle {
+    font-size: 1rem;
+    color: var(--color-texto-suave);
+    margin-bottom: 20px;
 }
 
-/* Lógica CSS pura con radio buttons ocultos */
-input[type="radio"][name="categoria"] {
-  display: none;
+.category-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-#radio-dulces:checked ~ .category-tabs label[for="radio-dulces"],
-#radio-saladas:checked ~ .category-tabs label[for="radio-saladas"] {
-  background-color: var(--color-rosa-borde);
-  color: var(--color-blanco);
-  border-color: var(--color-rosa-borde);
-  box-shadow: 0 4px 12px rgba(194, 132, 155, 0.4);
+.category-btn-link {
+    display: inline-block;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-texto-oscuro);
+    background-color: var(--color-rosa-suave);
+    border: 2px solid var(--color-rosa-borde);
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: var(--sombra-suave);
 }
 
-.recipes-content {
-  display: none;
+.category-btn-link:hover {
+    background-color: var(--color-lavanda);
+    border-color: var(--color-lavanda-hover);
+    transform: translateY(-2px);
 }
 
-#radio-dulces:checked ~ #contenido-dulces {
-  display: grid;
+.category-btn-link.active {
+    background-color: var(--color-rosa-principal);
+    color: var(--color-blanco);
+    border-color: var(--color-dorado);
+    box-shadow: var(--sombra-hover);
 }
 
-#radio-saladas:checked ~ #contenido-saladas {
-  display: grid;
-}
-
-/* --- Grid de Recetas y Cards --- */
+/* RECIPES GRID & CARDS */
 .recipes-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
 }
 
 .recipe-card {
-  background-color: var(--color-rosa-card);
-  border: 2px solid var(--color-rosa-borde);
-  border-radius: var(--radio-borde);
-  overflow: hidden;
-  box-shadow: var(--sombra-card);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
+    background-color: var(--color-rosa-card);
+    border: 2px solid var(--color-rosa-borde);
+    border-radius: var(--radio-card);
+    overflow: hidden;
+    box-shadow: var(--sombra-card);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .recipe-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(194, 132, 155, 0.25);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(232, 160, 191, 0.35);
 }
 
-.card-img-wrapper {
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-  position: relative;
-  border-bottom: 1px solid var(--color-rosa-primario);
+.recipe-img-container {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background-color: var(--color-blanco);
 }
 
-.card-img-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
+.recipe-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
 }
 
-.recipe-card:hover .card-img-wrapper img {
-  transform: scale(1.05);
+.recipe-card:hover .recipe-img-container img {
+    transform: scale(1.05);
 }
 
-.card-body {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  text-align: center;
+.recipe-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--color-texto-oscuro);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 15px;
+    border: 1px solid var(--color-dorado);
+    text-transform: uppercase;
 }
 
-.card-title {
-  font-family: var(--fuente-principal);
-  font-size: 1.25rem;
-  color: var(--color-texto-oscuro);
-  margin-bottom: 1rem;
+.recipe-content {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
-.btn-download {
-  margin-top: auto;
-  display: inline-block;
-  padding: 0.6rem 1.2rem;
-  background-color: var(--color-blanco);
-  color: var(--color-rosa-borde);
-  border: 1.5px solid var(--color-rosa-borde);
-  border-radius: 20px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.85rem;
-  transition: all 0.3s ease;
-  align-self: center;
+.recipe-title {
+    font-size: 1.25rem;
+    color: var(--color-texto-oscuro);
+    margin-bottom: 10px;
+    font-weight: 700;
 }
 
-.btn-download:hover {
-  background-color: var(--color-rosa-borde);
-  color: var(--color-blanco);
+.recipe-description {
+    font-size: 0.9rem;
+    color: var(--color-texto-suave);
+    margin-bottom: 20px;
+    flex-grow: 1;
 }
 
-/* --- Sección Sobre Mí --- */
-.about-card {
-  background-color: var(--color-blanco);
-  border-radius: var(--radio-borde);
-  padding: 2.5rem;
-  box-shadow: var(--sombra-suave);
-  border: 1px solid var(--color-rosa-primario);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
+.recipe-btn-download {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: var(--color-blanco);
+    color: var(--color-texto-oscuro);
+    border: 1.5px solid var(--color-rosa-borde);
+    padding: 10px 15px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.recipe-btn-download:hover {
+    background-color: var(--color-rosa-principal);
+    color: var(--color-blanco);
+    border-color: var(--color-rosa-principal);
+    box-shadow: 0 4px 10px rgba(232, 160, 191, 0.4);
+}
+
+/* =========================================================
+   SECCIÓN 2: SOBRE LA AUTORA (MANTENEDOR)
+   ========================================================= */
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    flex-wrap: wrap;
 }
 
 .about-avatar {
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  background-color: var(--color-rosa-claro);
-  border: 3px solid var(--color-dorado);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.5rem;
-  margin-bottom: 1.2rem;
-  box-shadow: 0 4px 10px rgba(212, 175, 55, 0.2);
+    flex: 0 0 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-rosa-principal), var(--color-lavanda));
+    border: 4px solid var(--color-blanco);
+    outline: 2px solid var(--color-dorado);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+    color: var(--color-blanco);
+    margin: 0 auto;
+    box-shadow: var(--sombra-suave);
 }
 
-.about-card h3 {
-  font-family: var(--fuente-principal);
-  font-size: 1.5rem;
-  color: var(--color-texto-oscuro);
-  margin-bottom: 0.3rem;
+.about-text {
+    flex: 1;
+    min-width: 280px;
 }
 
-.about-card .role {
-  color: var(--color-dorado);
-  font-weight: 600;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.about-text h3 {
+    font-size: 1.4rem;
+    color: var(--color-texto-oscuro);
+    margin-bottom: 8px;
 }
 
-.about-card p {
-  color: var(--color-texto);
-  line-height: 1.7;
+.about-role {
+    font-size: 0.9rem;
+    color: var(--color-rosa-principal);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
 }
 
-/* --- Sección Contacto (Formulario) --- */
+.about-text p {
+    font-size: 0.95rem;
+    color: var(--color-texto-suave);
+    margin-bottom: 15px;
+}
+
+.about-badges {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.about-badge {
+    background-color: var(--color-rosa-suave);
+    border: 1px solid var(--color-rosa-borde);
+    color: var(--color-texto-oscuro);
+    padding: 5px 14px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* =========================================================
+   SECCIÓN 3: FORMULARIO DE CONTACTO
+   ========================================================= */
+
 .contact-container {
-  max-width: 650px;
-  margin: 0 auto;
-  background-color: var(--color-blanco);
-  padding: 2.5rem;
-  border-radius: var(--radio-borde);
-  box-shadow: var(--sombra-suave);
-  border: 1px solid var(--color-rosa-primario);
+    max-width: 650px;
+    margin: 0 auto;
 }
 
 .form-group {
-  margin-bottom: 1.2rem;
-  text-align: left;
+    margin-bottom: 20px;
 }
 
 .form-group label {
-  display: block;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--color-texto-oscuro);
-  margin-bottom: 0.4rem;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-texto-oscuro);
 }
 
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 0.8rem 1rem;
-  border: 1.5px solid var(--color-rosa-primario);
-  border-radius: 10px;
-  font-family: var(--fuente-cuerpo);
-  font-size: 0.95rem;
-  background-color: var(--color-rosa-claro);
-  color: var(--color-texto-oscuro);
-  transition: border-color 0.3s ease, background-color 0.3s ease;
+.form-control {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    border: 1.5px solid var(--color-rosa-borde);
+    border-radius: 12px;
+    background-color: var(--color-crema-fondo);
+    color: var(--color-texto-oscuro);
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: inherit;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--color-rosa-borde);
-  background-color: var(--color-blanco);
+.form-control:focus {
+    border-color: var(--color-rosa-principal);
+    box-shadow: 0 0 0 3px rgba(232, 160, 191, 0.25);
+    background-color: var(--color-blanco);
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 120px;
 }
 
 .btn-submit {
-  width: 100%;
-  padding: 0.9rem;
-  background-color: var(--color-rosa-borde);
-  color: var(--color-blanco);
-  border: none;
-  border-radius: 25px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 10px rgba(194, 132, 155, 0.3);
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background-color: var(--color-rosa-principal);
+    color: var(--color-blanco);
+    border: 2px solid var(--color-dorado);
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--sombra-suave);
 }
 
 .btn-submit:hover {
-  background-color: #a86b82;
-  transform: translateY(-1px);
+    background-color: #DF8BAE;
+    transform: translateY(-2px);
+    box-shadow: var(--sombra-hover);
 }
 
-/* --- Footer --- */
+/* =========================================================
+   FOOTER / PIE DE PÁGINA
+   ========================================================= */
+
 footer {
-  background-color: var(--color-blanco);
-  border-top: 2px solid var(--color-rosa-primario);
-  padding: 2rem 1rem;
-  text-align: center;
-  color: var(--color-lila);
-  font-size: 0.9rem;
-  margin-top: 3rem;
-}
-
-footer strong {
-  color: var(--color-rosa-borde);
-}
-
-/* --- Media Queries (Responsiveness) --- */
-@media (max-width: 768px) {
-  .nav-container {
-    flex-direction: column;
+    background-color: #F8EBF0;
+    border-top: 1px solid var(--color-rosa-borde);
+    padding: 25px 20px;
     text-align: center;
-  }
+    color: var(--color-texto-suave);
+    font-size: 0.85rem;
+    margin-top: auto;
+}
 
-  nav ul {
-    gap: 0.8rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+footer p {
+    margin-bottom: 5px;
+}
 
-  .hero h1 {
-    font-size: 2rem;
-  }
+/* =========================================================
+   DISEÑO RESPONSIVE (MEDIA QUERIES)
+   ========================================================= */
 
-  .about-card, .contact-container {
-    padding: 1.5rem;
-  }
-
-  .recipes-grid {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    nav ul {
+        justify-content: center;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .section-card {
+        padding: 25px 18px;
+    }
+    
+    .recipes-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .about-badges {
+        justify-content: center;
+    }
 }
